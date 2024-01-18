@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Guessing Game</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.2.8/es6-promise.min.js"></script>
+    <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
 </head>
-<body>
-
+<body> 
     <h1>Pokemon Guessing Game</h1>
-
+    <script>
+        // Initialize the Pokedex with cacheImages option
+        const P = new Pokedex.Pokedex({ cacheImages: true });    
+    </script>
+    <div id="app">
+        <img id="pokemonImage" src="" alt="" />
+    </div>
     <input type="text" id="user-input" placeholder="Enter your guess">
-    <button onclick="makeGuess()">Guess</button>
-    <button onclick="getHint()">Get Hint</button>
-    <div id="remaining-guesses">Remaining Guesses: <span id="guess-counter">3</span></div>
-
-
+    <button id = "guessButton" onclick="makeGuess()">Guess</button>
+    <button id = "hint-button" onclick="getHint()">Get Hint</button>
+    <div id="remaining-guesses">Remaining Guesses: <span id="guess-counter">5</span></div>
+    <div id="about-hint" style="display:none;">
+        HINT #1: <span id="about"></span>
+    </div>
+    <div id="version-hint" style="display:none;">
+        FINAL HINT: This Pokemon First Appeared in This Region: <span id="version"></span>
+    </div>
+    <div id="congratsMessage" style="display: none;">
+        <h2>Congrats! You've guessed correctly!</h2>
+        <!-- Add more details or styling as desired -->
+    </div>
+    <div id="answerDisplay" style="display: none;">
+        <p>The Correct Answer is: <span id="correctAnswerDisplay"></span></p>
+    </div>
     <script src="script.js"></script>
-
 </body>
 </html>
