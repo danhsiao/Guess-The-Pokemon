@@ -10,6 +10,7 @@ let imageUrl;
 let blurInt = 20;
 let versionResponse;
 let versionData;
+let guessCounter = 1;
 version = '';
 
 function getRandomPokemonImage() {
@@ -41,7 +42,21 @@ async function getCorrectAnswer(){
 
 function makeGuess() {
     const userInput = document.getElementById('user-input').value.trim();
+    const guesses = document.getElementById('guesses');
     if (userInput !== '') {
+
+        const guessItem = document.createElement('p');
+        const guessLabel = document.createElement('span');
+        guessLabel.innerText = 'Guess ' + guessCounter + ': ';
+        guessLabel.style.fontWeight = 'bold';
+
+        guessItem.appendChild(guessLabel);
+        guessItem.appendChild(document.createTextNode(userInput));
+
+        guesses.appendChild(guessItem);
+
+        guessCounter++;
+
         if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
             // Show congrats message
             document.getElementById('congratsMessage').style.display = 'block';
