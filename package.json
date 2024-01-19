@@ -3,6 +3,7 @@
     "pokeapi-js-wrapper": "^1.2.3",
     "tailwindcss": "^3.4.1"
   }
+  ,
   "scripts": {
     "build-css": "tailwindcss build src/styles.css -o public/styles.css"
   }
