@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+#pokemonTitle{
+  font-family: 'Pokemon Solid', sans-serif;
+  text-align: center;
+  margin: 50px;
+}
 #app {
   margin: 0 auto; /* centers the div */
   padding: 50px; /* adds space inside the div around the image */
@@ -7,30 +15,30 @@
 #pokemonImage {
   max-width: 100%; /* makes the image responsive */
   height: auto; /* maintains the aspect ratio */
-  display: block; /* prevents inline behavior */
-  margin: 0 auto; /* centers the image in the div if it's not as wide as the div */
-}
-
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {
   padding: 10px;
   margin: 10px;
+  margin-left: auto; /* centers the container */
+  margin-right: auto;
 }
 
 button {
   padding: 10px;
   margin: 10px;
   cursor: pointer;
+  margin-left: auto; /* centers the container */
+  margin-right: auto;
 }
 
 #remaining-guesses {
   font-size: 18px;
   margin-top: 20px;
+  
 }
 
 #about-hint{
@@ -40,23 +48,19 @@ button {
   margin: 0 auto;
 }
 
-#congratsMessage {
-  text-align: center;
-  /* Additional styling */
-}
-
 /* styles.css */
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
+  font-family: 'Pokemon Solid', sans-serif;
+  background-color: #000000;
   color: #333;
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
-h1 {
+h1{
+  font-family:'Pokemon Solid',sans-serif;
   background-color: #ffcb05;
   color: #3b4cca;
   padding: 20px 0;
@@ -64,33 +68,15 @@ h1 {
 }
 
 #app {
-  margin: 20px;
+  text-align:center;
 }
 
 #pokemonImage {
   max-width: 250px;
   border: 2px solid #ddd;
   border-radius: 10px;
+  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-input[type="text"] {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
-  width: 300px;
-  margin-top: 20px;
-}
-
-button {
-  background-color: #3b4cca;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  margin: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -102,10 +88,20 @@ button:hover {
   color: white;
   padding: 20px;
   border-radius: 4px;
+  text-align: center;
+  margin-top: 20px;
+}
+#gameOverMessage{
+  background-color: #ff0000;
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 #answerDisplay {
-  color: #dc3545;
+  color: #3572dc;
   padding: 20px;
 }
 
@@ -124,9 +120,17 @@ button:hover {
   border-radius: 4px;
   margin-top: 20px;
 }
+#letter-hint{
+  background-color: #17a2b8;
+  color: white;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
 
 #remaining-guesses {
   margin-top: 20px;
+  color:white;
 }
 @media (min-width: 768px) {
   input[type="text"], button {
@@ -150,4 +154,112 @@ button:hover {
   #pokemonImage {
     max-width: 300px;
   }
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+/* Add styles for the guesses container */
+#guesses {
+  border: 1px solid #ddd; /* adds a border to the container */ /* adds padding inside the container */
+  background-color: #f9f9f9; /* light background for the container */
+  border-radius: 5px; /* rounds the corners of the container */
+  margin-top: 20px; /* adds margin above the container */
+  margin-bottom: 20px;
+  width: 300px; /* or any width you prefer */
+  margin-left: auto; /* centers the container */
+  margin-right: auto; /* centers the container */
+  padding: 20px;
+}
+
+/* Update styles for individual guess items */
+.correct-guess, .incorrect-guess {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px; /* adds padding inside each guess item */
+  margin: 5px 0; /* adds margin above and below each guess item */
+  background-color: #fff; /* white background for each guess */
+  border-radius: 3px; /* rounds the corners of each guess */
+  display: block; /* ensures each guess is on a new line */
+  text-align: center; /* centers the text inside each guess */
+}
+
+.correct-guess {
+  color: green;
+  border: 1px solid #c8e6c9; /* light green border for correct guesses */
+}
+
+.incorrect-guess {
+  color: red;
+  border: 1px solid #ffcdd2; /* light red border for incorrect guesses */
+}
+
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* semi-transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Make sure it's on top of other elements */
+}
+
+#howToPlay {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px; /* Adjust as per your design */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#playButton , #playAgainButton{
+  background-color: #3b4cca;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.controls {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers the flex items on the main axis */
+  align-items: center; /* Centers the flex items on the cross axis */
+  gap: 10px; /* Adds space between flex items */
+  margin-top:20px;
+}
+
+/* Adjust the width of the input to take up more space in the flex container */
+input[type="text"] {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  width: 300px;
+  margin-top: 20px;
+}
+
+/* Adjust the buttons to not take as much width */
+button {
+  background-color: #3b4cca;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
