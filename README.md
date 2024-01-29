@@ -1,5 +1,6 @@
 Welcome to Guess The Pokemon!
 The blurred images displayed are Pokemon from Generations 1-5. 
+You will have 5 guesses to correctly identify the Pokemon.
 To Start Guessing, Follow These Steps:
 1. Download any IDE. https://code.visualstudio.com/
 2. Pull the Code from the Repository using your terminal. Use this command: git pull https://github.com/danhsiao/Guess-The-Pokemon.git
